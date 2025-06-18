@@ -1,0 +1,511 @@
+/**
+ *
+ * Precisamos padronizar os espaçamentos: https://nordhealth.design/tokens/#space
+ * a ideia é padronizar espaçamentos, tamannhos de fonte, line height, tudo em variáveis - controlando as quantidade de variantes como se fosse a propria TVA e evitar tamanhos de fontes expalhados e desproporcionais 
+ *
+ * Sobre o flex-direction, será que poderiamos usar um row-reverse ou column-reverse (de repente no mobile)?
+ *
+ * Esse artigo poderia entrar num PS+ ou algo assim: https://www.alura.com.br/artigos/css-guia-do-flexbox
+ * 
+ * Lembrar de: explicar o baseline e o strech do align-items
+ *
+ * Faltou falar sobre flex flow: https://developer.mozilla.org/pt-BR/docs/Web/CSS/flex-flow
+ * Faltou o align-content (para multiplas rows ou columns, dependendo do flex-direction) https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
+ * Faltou o flex-shrink https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink
+ * Faltou o flex-basis https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
+ *
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+:root {
+    --cor-texto: #1e1e1e;
+    --cor-texto-hover: #252530;
+    --cor-texto-claro: #ffffff;
+    --cor-texto-destaque: #6F99FF;
+    --cor-faixa-etaria: #F5D010;
+    --cor-faixa-etaria-livre: #C3FF95;
+
+    --cor-de-fundo-faixa-etaria: #EFEFEF;
+    --cor-de-fundo-input: #EFEFEF;
+    --cor-de-fundo: #ffffff;
+    --cor-de-fundo-newsletter: #CCDBFF;
+    --cor-de-fundo-footer: #1E1E1E;
+    --cor-de-fundo-combo: #111114;
+
+    --border-color: #A6A6A6;
+    --box-shadow-card: 0px 4px 24px 0px #7B7B7B26;
+
+    --fonte-texto: 'Poppins', sans-serif;
+    --fonte-titulo: 'Dela Gothic One', sans-serif;
+
+    --gap-xs: 0.5rem;
+    --gap-s: 1rem;
+    --gap-m: 1.5rem;
+    --gap-l: 2rem;
+    --gap-xl: 3.5rem;
+
+    --padding-xs: 0.5rem;
+    --padding-s: 1rem;
+    --padding-m: 1.5rem;
+    --padding-l: 2rem;
+    --padding-xl: 3.5rem;
+    --padding-xxl: 5rem;
+
+    --font-size-xs: 0.75rem;
+    --font-size-s: 1rem;
+    --font-size-m: 1.25rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 3rem;
+    --font-size-xxl: 4.75rem;
+
+    --max-width-block: 75rem;
+
+    
+        --margin-xs: 0.5rem;
+        --margin-s: 1rem;
+        --margin-m: 1.5rem;
+        --margin-l: 2rem;
+
+        --line-height-xs: 1.2rem;
+        --line-height-s: 1.5rem;
+        --line-height-m: 1.75rem;
+        --line-height-l: 2rem;
+        --line-height-xl: 2.5rem;
+        --line-height-xxl: 5.7rem;
+    
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-default);
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulo);
+    line-height: 1.2em;
+    letter-spacing: 0.9px;
+    font-weight: 400;
+}
+
+
+/*********************************** Header ***********************************/
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--space-5xl);
+    flex-wrap: wrap;
+    padding: var(--space-lg) var(--space-2xl);
+    border: 1px solid var(--border-mediu);
+}
+
+.menu-trigger {
+    display: none;
+    color: var(--text-action);
+}
+
+.menu-header {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-lg);
+    align-items: center;
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.menu-header li:nth-child(6){
+    display: none;
+}
+
+.local-header {
+    flex: 1;
+}
+
+
+/*********************************** Banner ***********************************/
+
+.banner {
+    height: 60vh;
+    background-image: url('../img/banner.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container-banner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    h2 {
+        color: var(--text-title_alt);
+    }
+    span {
+        color: var(--cor-texto-destaque);
+    }
+}
+
+
+/*********************************** Cartaz ***********************************/
+.cartaz {
+    width: 80%;
+    margin: var(--space-12xl) auto;
+}
+
+.nav-cartaz {
+    margin: var(--space-2xl) 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-xs);
+    background-color: var(--bg-light);
+    border-radius: var(--radius-md);
+}
+
+.tab-cartaz {
+    display: flex;
+    gap: var(--space-lg);
+    li {
+        padding: 0px var(--space-xs);
+    }
+    li:first-child {
+        color: var(--text-action);
+        border-bottom: 2px solid var(--border-action);
+    }
+    li:last-child {
+        color: var(--text-disabled);
+    }
+}
+
+.filmes-cartaz {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-lg);
+}
+
+.filmes-cartaz h2 {
+    flex: 1 1 100%;
+}
+
+.card-cartaz {
+    width: 100%;
+    height: 100%;
+    max-height: 468px;
+    max-width: 16em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 32%;
+    gap: 0px;
+    img {
+        width: 100%;
+        border-radius: var(--radius-md) var(--radius-md) 0 0;
+        object-fit: cover;
+    }
+    span {
+        font-weight: 700;
+        padding: var(--space-xs);
+        border-radius: var(--radius-sm);
+        max-height: 28px;
+        width: fit-content;
+        position: absolute;
+        margin: var(--space-xs);
+    }
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    background-color: var(--bg-light);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    h6 {
+        margin-bottom: var(--space-xs);
+        color: var( --cor-texto-destaque);
+    }
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: ce;
+    }
+    p {
+        color: var(--text-body);
+    }
+}
+
+.catorze-anos {
+    background-color: #E6883C;
+    color: var(--text-body_alt);
+}
+
+.livre{
+    background-color: #4193D5;
+    color: var(--text-body_alt);
+}
+
+.dezesseis-anos {
+    background-color: #D9382F;
+    color: var(--text-body_alt);
+}
+
+.dezoito-anos {
+    background-color: #222;
+    color: var(--text-body_alt);
+}
+
+/*********************************** Combo ***********************************/
+
+.combo {
+    background-color: var(--cor-de-fundo-combo);
+    height: 400px;
+    background-image: url("../img/banner-pipoca.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-combo {
+    max-width: var(--max-width-block);
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-lg);
+    h2,span {
+        width: 50%;
+        font-family: var(--fonte-titulo);
+        font-size: var(--font-size-xxl);
+        line-height: var(--line-height-xxl);
+        font-weight: 400;
+        color: var(--cor-texto-claro);
+    }
+    span {
+        color: var(--cor-texto-destaque);
+    }
+}
+
+
+/*********************************** Newsletter ***********************************/
+
+.newsletter {
+    height: 48vh;
+    background-color: var(--cor-de-fundo-newsletter);
+    padding: var(--padding-xxl) 0;
+    background-image: url("../img/luzecena/tarjeta.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.container-newsletter {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-lg);
+    h2 {
+        font-size: var(--font-size-l);
+        line-height: 1.2em;
+        color: var(--cor-texto);
+        text-align: center;
+    }
+    .btn {
+        margin-left: var(--space-sm);
+        height: 48px;
+    }
+}
+
+
+/*********************************** Formulário ***********************************/
+.local-header, .nav-cartaz, .container-newsletter {
+    width: 100%;
+    position: relative;
+    form {
+        display: flex;
+        gap: 0px;
+        align-items: center;
+    }
+    input {
+        width: 100%;
+        max-height: 48px;
+        padding: var(--space-xl) var(--space-md);
+        background-color: var(--bg-light);
+        box-sizing: border-box;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        border: 1px solid var(--border-heavy);
+        font-size: var(--text-md);
+    }
+    span {
+        height: 48px;
+        max-height: 48px;
+        align-content: center;
+        padding: var(--space-xs);
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-heavy);
+        border-right: none;
+        border-radius: var(--radius-md) 0 0 var(--radius-md);
+        color: var(--text-disabled);
+        pointer-events: none;
+
+    }
+}
+
+/*********************************** Footer ***********************************/
+footer {
+    padding: var(--space-8xl);
+    display: flex;
+    justify-content: space-around;
+    gap: var(--space-2xl);
+    background-color: var(--cor-de-fundo-footer);
+    h4 {
+        color: var(--cor-texto-destaque);
+        margin-bottom: var(--space-md);
+    }
+    li, p {
+        color: var(--text-body_alt);
+    }
+}
+
+.logo-footer img {
+    margin-bottom: var(--space-lg);
+}
+
+.links-footer li {
+    margin: var(--space-lg) 0;
+    list-style: none;
+}
+
+/*********************************** Media Queries ***********************************/
+
+/************* Grande - Desktop e notebooks (maior que 1200px)*************/
+
+@media screen and (min-width: 1201px) {
+
+
+}
+
+/************* Médio - Tablets, mesas digitalizadoras e kindle (entre 1200px e 768px)*************/
+@media screen and (max-width: 1200px) {
+    .local-header {
+        row-gap: var(--space-md);
+        flex: 1 1 100%;
+        order: 1;
+    }
+    .container-combo {
+        padding: 0 var(--padding-xxl);
+        h2, span {
+            font-size: var(--font-size-xl);
+            line-height: var(--line-height-xl);
+        }
+    }
+}
+
+/************* Pequeno - Celulares (menor que 768px)*************/
+@media screen and (max-width: 767px) {
+    header {
+       justify-content: space-between;
+    }
+    .local-header {
+        row-gap: var(--space-md);
+        flex: 1 1 100%;
+        order: 1;
+    }
+
+    .menu-header li:nth-child(1), .menu-header li:nth-child(2), .menu-header li:nth-child(3), .menu-header li:nth-child(4), .menu-header li:nth-child(5) {
+        display: none;  
+    }
+
+    .menu-header li:nth-child(6){
+        display: block;
+    }
+    .menu-trigger {
+        display: block;
+    }
+    .container-banner {
+        h2, span{
+            font-size: var(--display-lg);
+            text-align: center;
+        }
+    }
+    .cartaz {
+        width: 100%;
+        margin: var(--space-8xl) 0;
+        padding: 0 var(--space-lg);
+    }
+    .filmes-cartaz {
+        gap: var(--space-sm);
+        h2 {
+            flex-grow: 1;
+        }
+    }
+    footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: var(--space-lg);
+        .logo-footer {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        div:nth-child(2){
+            grid-area: 2 / 1 / 3 / 2;
+        }
+        div:nth-child(3){
+            grid-area: 2 / 2 / 3 / 3;
+        }
+        .social-footer {
+            grid-area: 3 / 1 / 4 / 3; 
+        }
+    }
+    
+}
+
+/************* Extra-pequeno - Celulares (menor que 500px)*************/
+ @media screen and (max-width: 499px) { 
+     .menu-header li:nth-child(1), .menu-header li:nth-child(2), .menu-header li:nth-child(3), .menu-header li:nth-child(4), .menu-header li:nth-child(5) {
+        display: none;  
+    }
+    .cartaz {
+        width: 100%;
+        margin: var(--space-2xl) 0;
+        padding: 0 var(--space-lg);
+    }
+    .nav-cartaz {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    .card-info {
+        div {
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+    }
+    footer {
+        padding: var(--space-2xl);
+        display: flex;
+        flex-flow: column wrap;
+    }
+ }
+
+
+

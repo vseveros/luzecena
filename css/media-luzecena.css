@@ -1,0 +1,55 @@
+/*********************************** Media Queries ***********************************/
+
+/*
+/************* Grande - Desktop e notebooks (maior que 1200px)*************/
+
+@media screen and (min-width: 1201px) {
+
+
+}
+
+/************* Médio - Tablets, mesas digitalizadoras e kindle (entre 1200px e 768px)*************/
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    
+}
+
+/************* Pequeno - Celulares (entre 768px e 500px)*************/
+@media screen and (max-width: 767px) and (min-width: 500px) {
+    header {
+       justify-content: space-between;
+    }
+    .local-header {
+        row-gap: var(--space-md);
+        flex: 1 1 100%;
+        order: 1;
+    }
+
+    .menu-header li:nth-child(1), .menu-header li:nth-child(2), .menu-header li:nth-child(3), .menu-header li:nth-child(4), .menu-header li:nth-child(5) {
+        display: block;  
+    }
+
+    .menu-header li:nth-child(6){
+        display: block;
+    }
+    .menu-trigger {
+        display: block;
+    }
+    .container-banner {
+        h2, span{
+            font-size: var(--display-lg);
+            text-align: center;
+        }
+    }
+    body {
+        background-color: brown;
+    }
+}
+
+/************* Extra-pequeno - Celulares (menor que 500px)*************/
+ @media screen and (max-width: 499px) { 
+    .cartaz {
+        width: 100%;
+        margin: var(--space-2xl) 0;
+        padding: 0 var(--space-lg);
+    }
+ }
