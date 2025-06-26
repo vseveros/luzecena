@@ -28,23 +28,22 @@
 "classificacao": "Livre",
 "duracao": "110 min"
 },
-},
+{
 "titulo": "La Esperanza",
 "genero": "Romance",
 "classificacao": "14",
 "duracao": "120 min"
 },
-},
+{
 "titulo": "Mestres do Futuro",
 "genero": "Aventura",
 "classificacao": "14",
 "duracao": "128 min"
 },
-},
+{
 "titulo": "O Nexus do Tempo",
 "genero": "Aventura",
 "classificacao": "14",
 "duracao": "130 min"
 }
 ]
-
